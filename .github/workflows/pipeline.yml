@@ -1,4 +1,4 @@
-name: ci-cd-to-npmjs
+name: publish-to-pages
 
 on:
   push:
