@@ -1,0 +1,25 @@
+version: "3.5"
+
+networks:
+  backend-network:
+    external: true
+    name: "${BACKEND_NETWORK_NAME}"
+
+# Set general setting for services logging
+x-logging-settings: &logging-settings
+  logging:
+    driver: "json-file"
+    options:
+      max-file: "2"
+      max-size: "5m"
+
+services:
+  # Nextjs applicaton container
+  node:
+    image: node:14
+    <<: *logging-settings
+    working_dir: "/app"
+    volumes:
+      - ./:/app:rw
+    networks:
+      - backend-network
