@@ -2,8 +2,10 @@ name: publish-to-pages
 
 on:
   push:
-    tags:
-      - '**'
+    branches:
+      - main
+#    tags:
+#      - '**'
 
 jobs:
   main:
